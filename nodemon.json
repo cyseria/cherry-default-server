@@ -1,0 +1,22 @@
+{
+    "restartable": "rs",
+    "verbose": false,
+    "env": {
+        "NODE_ENV": "development",
+        "PORT": "4000"
+    },
+    "execMap": {
+        "start": "node index.js"
+    },
+    "watch": [
+        "index.js",
+        "routes/",
+        "lib/",
+        "templates/"
+    ],
+    "ignore": [
+        ".git",
+        "node_modules"
+    ],
+    "ext": "js"
+}
