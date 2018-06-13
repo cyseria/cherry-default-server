@@ -1,5 +1,8 @@
 # cherry-scaffold-server
-cherry scaffold server
+
+cherry scaffold market simple server
+
+暂时本地读写文件版, 没有接入数据库
 
 ## quick start
 
@@ -9,5 +12,4 @@ cherry scaffold server
 npx nodemon start
 ```
 
-## how to develope
 

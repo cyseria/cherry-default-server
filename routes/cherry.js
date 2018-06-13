@@ -47,7 +47,7 @@ router.post('/publish', async (ctx, next) => {
 router.delete('/item', async (ctx, next) => {
     const config = await fileOperate.read();
     const reqBody = ctx.request.body;
-    if (config.hasOwnProperty(reqBody.name)) {
+    if (!!config.hasOwnProperty(reqBody.name)) {
         delete config[reqBody.name];
     }
     await fileOperate.write(config)

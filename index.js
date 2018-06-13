@@ -16,10 +16,7 @@ const app = new koa();
 // 允许跨域
 app.use(cors({
     origin: function (ctx) {
-        if (ctx.url === '/test') {
-            return "*"; // 允许来自所有域名请求
-        }
-        return 'http://localhost:3001';
+        return "*"; // 允许来自所有域名请求
     },
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
@@ -34,6 +31,6 @@ app.use(bodyParser())
 // 路由信息
 app.use(api.routes());
 
-app.listen(3000, () => {
-    console.log('The server is running at http://localhost:3000/')
+app.listen(8008, () => {
+    console.log('The server is running/')
 })

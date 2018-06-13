@@ -6,7 +6,7 @@
  * @last modified time: 2018-06-10 19:57:47
  */
 
-const fs = require('fs');
+
 const fsExtra = require('fs-extra')
 const nps = require('path');
 
