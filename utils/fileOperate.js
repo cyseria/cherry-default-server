@@ -15,12 +15,24 @@ module.exports = {
     read: async function (path) {
         path = path || process.cwd();
         try {
-            const data = await fsExtra.readJsonSync(configPath);
-            return data; // obj
+            // 没有文件写入空 json 对象
+            const pathExists = fsExtra.pathExistsSync(configPath)
+            if (!pathExists) {
+                await fsExtra.ensureFile(configPath);
+                await fsExtra.writeJsonSync(configPath, {});
+            }
+            
+            try {
+                const data = await fsExtra.readJsonSync(configPath);
+                return data; // obj
+            } catch (err) {
+                console.log(err);
+                return;
+            }
         } catch (err) {
-            console.log(err);
-            return;
+            console.error(err)
         }
+
     },
     write: async function (json) {
         try {

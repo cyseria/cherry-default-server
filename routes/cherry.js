@@ -39,18 +39,28 @@ router.post('/publish', async (ctx, next) => {
     const obj = {};
     obj[reqBody.name] = reqBody;
     const newConfig = Object.assign(config, obj);
-    await fileOperate.write(newConfig)
-    ctx.body = {};
+    try {
+        await fileOperate.write(newConfig);
+        ctx.body = {};
+    } catch(err) {
+        ctx.error(err);
+    }
 })
 
 // 删除某个(暂不暴露)
-router.delete('/item', async (ctx, next) => {
+router.delete('/unpublish', async (ctx, next) => {
     const config = await fileOperate.read();
     const reqBody = ctx.request.body;
     if (!!config.hasOwnProperty(reqBody.name)) {
         delete config[reqBody.name];
     }
-    await fileOperate.write(config)
+    try {
+        await fileOperate.write(config);
+        ctx.body = {};
+    } catch(err) {
+        ctx.error(err);
+    }
+    
     ctx.body = {};
 })
 
