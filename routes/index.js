@@ -11,7 +11,7 @@ const router = require('koa-router')();
 const cherry = require('./cherry');
 
 router.get('/', async function (ctx, next) {
-  ctx.body = 'aaa';
+  ctx.body = '🍒 congratulation, cherry server works';
 })
 
 router.use(cherry.routes(), cherry.allowedMethods());

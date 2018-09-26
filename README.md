@@ -2,14 +2,27 @@
 
 cherry scaffold market simple server
 
-暂时本地读写文件版, 没有接入数据库
+*超级超级简单的 demo，只本地读写文件, 没有接入数据库*
 
-## quick start
+## dev
 
-使用 nodemon 自动重启
+```bash
+npm install
 
-```
+# 使用 nodemon watch changes and update
 npx nodemon start
 ```
 
+open http://localhost:8008
 
+## 部署
+
+```
+pm2 start index.js
+```
+
+## cherry 配置
+
+```bash
+cherry config set server 'http://localhost:8008/cherry'
+```

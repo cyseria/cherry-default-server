@@ -2,8 +2,8 @@
  * @file 
  * @author Cyseria <xcyseria@gmail.com> 
  * @created time: 2018-06-10 01:02:29 
- * @last modified by: Cyseria
- * @last modified time: 2018-06-10 01:04:59
+ * @last modified by: 陈蔓青
+ * @last modified time: 2018-09-26 23:28:58
  */
 
 const koa = require('koa');
@@ -32,5 +32,5 @@ app.use(bodyParser())
 app.use(api.routes());
 
 app.listen(8008, () => {
-    console.log('The server is running/')
+    console.log('The server is running at http://localhost:8008')
 })
